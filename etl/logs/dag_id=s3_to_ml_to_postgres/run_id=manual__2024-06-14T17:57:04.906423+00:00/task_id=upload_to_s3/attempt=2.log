@@ -1,0 +1,34 @@
+[2024-06-14 18:02:35,866] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.upload_to_s3 manual__2024-06-14T17:57:04.906423+00:00 [queued]>
+[2024-06-14 18:02:35,869] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.upload_to_s3 manual__2024-06-14T17:57:04.906423+00:00 [queued]>
+[2024-06-14 18:02:35,869] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 18:02:35,870] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2024-06-14 18:02:35,870] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 18:02:35,875] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): upload_to_s3> on 2024-06-14 17:57:04.906423+00:00
+[2024-06-14 18:02:35,877] {standard_task_runner.py:52} INFO - Started process 25851 to run task
+[2024-06-14 18:02:35,879] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'upload_to_s3', 'manual__2024-06-14T17:57:04.906423+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmp8yr54w36', '--error-file', '/tmp/tmpbwqwa0vi']
+[2024-06-14 18:02:35,879] {standard_task_runner.py:80} INFO - Job 26: Subtask upload_to_s3
+[2024-06-14 18:02:35,898] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.upload_to_s3 manual__2024-06-14T17:57:04.906423+00:00 [running]> on host 92769061d4a4
+[2024-06-14 18:02:35,923] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=upload_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-14T17:57:04.906423+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-14T17:57:04.906423+00:00
+[2024-06-14 18:02:35,926] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ml_dataset_preparation.py", line 120, in upload_to_s3
+    bucket_name=Variable.get("velib-project"),
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/variable.py", line 138, in get
+    raise KeyError(f'Variable {key} does not exist')
+KeyError: 'Variable velib-project does not exist'
+[2024-06-14 18:02:35,929] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=upload_to_s3, execution_date=20240614T175704, start_date=20240614T180235, end_date=20240614T180235
+[2024-06-14 18:02:35,932] {standard_task_runner.py:97} ERROR - Failed to execute job 26 for task upload_to_s3 ('Variable velib-project does not exist'; 25851)
+[2024-06-14 18:02:35,941] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-06-14 18:02:35,953] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

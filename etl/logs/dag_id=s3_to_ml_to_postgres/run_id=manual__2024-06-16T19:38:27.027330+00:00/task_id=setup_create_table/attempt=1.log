@@ -1,0 +1,42 @@
+[2024-06-16T19:40:24.212+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-16T19:38:27.027330+00:00 [queued]>
+[2024-06-16T19:40:24.216+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-16T19:38:27.027330+00:00 [queued]>
+[2024-06-16T19:40:24.216+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-06-16T19:40:24.220+0000] {taskinstance.py:2191} INFO - Executing <Task(RedshiftDataOperator): setup_create_table> on 2024-06-16 19:38:27.027330+00:00
+[2024-06-16T19:40:24.223+0000] {standard_task_runner.py:60} INFO - Started process 34295 to run task
+[2024-06-16T19:40:24.225+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'setup_create_table', 'manual__2024-06-16T19:38:27.027330+00:00', '--job-id', '180', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmp6f_u5g99']
+[2024-06-16T19:40:24.226+0000] {standard_task_runner.py:88} INFO - Job 180: Subtask setup_create_table
+[2024-06-16T19:40:24.244+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-16T19:38:27.027330+00:00 [running]> on host 22dc78ccc862
+[2024-06-16T19:40:24.272+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='setup_create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T19:38:27.027330+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T19:38:27.027330+00:00'
+[2024-06-16T19:40:24.273+0000] {redshift_data.py:122} INFO - Executing statement: 
+    DROP TABLE IF EXISTS transformed_data;
+    CREATE TABLE transformed_data (
+        stationcode VARCHAR(255),
+        name VARCHAR(255),
+        is_installed BOOLEAN,
+        capacity INT,
+        numdocksavailable INT,
+        numbikesavailable INT,
+        mechanical INT,
+        ebike INT,
+        is_renting BOOLEAN,
+        is_returning BOOLEAN,
+        nom_arrondissement_communes VARCHAR(255),
+        code_insee_commune VARCHAR(255),
+        longitude DOUBLE PRECISION, 
+        latitude DOUBLE PRECISION, 
+        date DATE, 
+        year INT, 
+        month INT, 
+        day INT, 
+        time TIME
+    );
+    
+[2024-06-16T19:40:24.276+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T19:40:24.276+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-16T19:40:25.388+0000] {redshift_data.py:113} INFO - Polling statement 749b3a28-f403-4d84-8f6d-699b3f457a8d
+[2024-06-16T19:40:25.477+0000] {redshift_data.py:129} INFO - Query PICKED
+[2024-06-16T19:40:35.491+0000] {redshift_data.py:113} INFO - Polling statement 749b3a28-f403-4d84-8f6d-699b3f457a8d
+[2024-06-16T19:40:35.651+0000] {redshift_data.py:121} INFO - Processed 0 rows
+[2024-06-16T19:40:35.687+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=s3_to_ml_to_postgres, task_id=setup_create_table, execution_date=20240616T193827, start_date=20240616T194024, end_date=20240616T194035
+[2024-06-16T19:40:35.738+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-06-16T19:40:35.751+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

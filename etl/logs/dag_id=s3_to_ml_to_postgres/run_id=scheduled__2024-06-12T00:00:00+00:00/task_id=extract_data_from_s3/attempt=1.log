@@ -1,0 +1,40 @@
+[2024-06-13 19:46:59,620] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 scheduled__2024-06-12T00:00:00+00:00 [queued]>
+[2024-06-13 19:46:59,623] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 scheduled__2024-06-12T00:00:00+00:00 [queued]>
+[2024-06-13 19:46:59,623] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-13 19:46:59,623] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-06-13 19:46:59,623] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-13 19:46:59,628] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extract_data_from_s3> on 2024-06-12 00:00:00+00:00
+[2024-06-13 19:46:59,630] {standard_task_runner.py:52} INFO - Started process 2956 to run task
+[2024-06-13 19:46:59,632] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'extract_data_from_s3', 'scheduled__2024-06-12T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmparjjmf_0', '--error-file', '/tmp/tmpx5bas4vz']
+[2024-06-13 19:46:59,632] {standard_task_runner.py:80} INFO - Job 3: Subtask extract_data_from_s3
+[2024-06-13 19:46:59,652] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 scheduled__2024-06-12T00:00:00+00:00 [running]> on host 92769061d4a4
+[2024-06-13 19:46:59,678] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=extract_data_from_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-12T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-06-12T00:00:00+00:00
+[2024-06-13 19:46:59,682] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 19:46:59,682] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 19:46:59,994] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ml_dataset_preparation.py", line 41, in extract_data_from_s3
+    s3_hook.download_file(bucket_name=s3_bucket, key=s3_key_path, local_file=local_file_path)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 54, in wrapper
+    bound_args = function_signature.bind(*args, **kwargs)
+  File "/usr/local/lib/python3.7/inspect.py", line 3015, in bind
+    return args[0]._bind(args[1:], kwargs)
+  File "/usr/local/lib/python3.7/inspect.py", line 3006, in _bind
+    arg=next(iter(kwargs))))
+TypeError: got an unexpected keyword argument 'local_file'
+[2024-06-13 19:47:00,014] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=s3_to_ml_to_postgres, task_id=extract_data_from_s3, execution_date=20240612T000000, start_date=20240613T194659, end_date=20240613T194700
+[2024-06-13 19:47:00,024] {standard_task_runner.py:97} ERROR - Failed to execute job 3 for task extract_data_from_s3 (got an unexpected keyword argument 'local_file'; 2956)
+[2024-06-13 19:47:00,065] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-06-13 19:47:00,094] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

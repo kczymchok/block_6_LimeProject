@@ -1,0 +1,48 @@
+[2024-06-16T18:53:53.537+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T18:51:21.206293+00:00 [queued]>
+[2024-06-16T18:53:53.540+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T18:51:21.206293+00:00 [queued]>
+[2024-06-16T18:53:53.540+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-06-16T18:53:53.545+0000] {taskinstance.py:2191} INFO - Executing <Task(S3ToRedshiftOperator): s3_to_redshift> on 2024-06-16 18:51:21.206293+00:00
+[2024-06-16T18:53:53.547+0000] {standard_task_runner.py:60} INFO - Started process 32245 to run task
+[2024-06-16T18:53:53.549+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 's3_to_redshift', 'manual__2024-06-16T18:51:21.206293+00:00', '--job-id', '157', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpv3f8cpbe']
+[2024-06-16T18:53:53.551+0000] {standard_task_runner.py:88} INFO - Job 157: Subtask s3_to_redshift
+[2024-06-16T18:53:53.571+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T18:51:21.206293+00:00 [running]> on host 22dc78ccc862
+[2024-06-16T18:53:53.600+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='s3_to_redshift' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T18:51:21.206293+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T18:51:21.206293+00:00'
+[2024-06-16T18:53:53.604+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T18:53:53.606+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T18:53:53.607+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-16T18:53:53.611+0000] {s3_to_redshift.py:192} INFO - Executing COPY command...
+[2024-06-16T18:53:53.614+0000] {base.py:83} INFO - Using connection ID 'redshift_conn_id' for task execution.
+[2024-06-16T18:53:54.903+0000] {sql.py:450} INFO - Running statement: 
+                    COPY PUBLIC.transformed_data 
+                    FROM 's3://velib-project/transformed_data.csv'
+                    credentials
+                    'aws_access_key_id=AKIA47CRVUXOGVJZJMVK;aws_secret_access_key=***'
+                    
+                    csv;
+        , parameters: None
+[2024-06-16T18:53:55.108+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:455: UserWarning: DB-API extension cursor.connection used
+  cur.execute(sql_statement)
+
+[2024-06-16T18:53:55.111+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/transfers/s3_to_redshift.py", line 196, in execute
+    redshift_hook.run(sql, autocommit=self.autocommit)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 398, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 455, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/cursor.py", line 248, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/cursor.py", line 241, in execute
+    self._c.execute(self, operation, args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 1959, in execute
+    self.handle_messages(cursor)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 2166, in handle_messages
+    raise self.error
+redshift_connector.error.ProgrammingError: {'S': 'ERROR', 'C': 'XX000', 'M': "Load into table 'transformed_data' failed.  Check 'sys_load_error_detail' system table for details.", 'F': '../src/pg/src/backend/commands/commands_copy.c', 'L': '741', 'R': 'CheckMaxRowError'}
+[2024-06-16T18:53:55.125+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=s3_to_ml_to_postgres, task_id=s3_to_redshift, execution_date=20240616T185121, start_date=20240616T185353, end_date=20240616T185355
+[2024-06-16T18:53:55.138+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 157 for task s3_to_redshift ({'S': 'ERROR', 'C': 'XX000', 'M': "Load into table 'transformed_data' failed.  Check 'sys_load_error_detail' system table for details.", 'F': '../src/pg/src/backend/commands/commands_copy.c', 'L': '741', 'R': 'CheckMaxRowError'}; 32245)
+[2024-06-16T18:53:55.188+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-16T18:53:55.210+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

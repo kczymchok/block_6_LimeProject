@@ -1,0 +1,24 @@
+[2024-06-14 15:06:16,904] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T15:05:56.120081+00:00 [queued]>
+[2024-06-14 15:06:16,908] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T15:05:56.120081+00:00 [queued]>
+[2024-06-14 15:06:16,908] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 15:06:16,908] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-06-14 15:06:16,908] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 15:06:16,913] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): transform_data> on 2024-06-14 15:05:56.120081+00:00
+[2024-06-14 15:06:16,915] {standard_task_runner.py:52} INFO - Started process 18218 to run task
+[2024-06-14 15:06:16,917] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'transform_data', 'manual__2024-06-14T15:05:56.120081+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpozcymq8f', '--error-file', '/tmp/tmp0o4gf9we']
+[2024-06-14 15:06:16,918] {standard_task_runner.py:80} INFO - Job 22: Subtask transform_data
+[2024-06-14 15:06:16,938] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T15:05:56.120081+00:00 [running]> on host 92769061d4a4
+[2024-06-14 15:06:16,965] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=transform_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-14T15:05:56.120081+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-14T15:05:56.120081+00:00
+[2024-06-14 15:06:17,182] {logging_mixin.py:115} INFO - Transformed data saved to /opt/***/data/transformed_data/transformed_data.csv
+[2024-06-14 15:06:17,184] {python.py:173} INFO - Done. Returned value was: None
+[2024-06-14 15:06:17,189] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=s3_to_ml_to_postgres, task_id=transform_data, execution_date=20240614T150556, start_date=20240614T150616, end_date=20240614T150617
+[2024-06-14 15:06:17,225] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-06-14 15:06:17,238] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

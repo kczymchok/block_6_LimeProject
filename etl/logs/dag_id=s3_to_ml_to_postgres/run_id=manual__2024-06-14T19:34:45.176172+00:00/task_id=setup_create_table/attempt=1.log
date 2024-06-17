@@ -1,0 +1,138 @@
+[2024-06-14T19:35:46.262+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:34:45.176172+00:00 [queued]>
+[2024-06-14T19:35:46.266+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:34:45.176172+00:00 [queued]>
+[2024-06-14T19:35:46.266+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-06-14T19:35:46.271+0000] {taskinstance.py:2191} INFO - Executing <Task(RedshiftDataOperator): setup_create_table> on 2024-06-14 19:34:45.176172+00:00
+[2024-06-14T19:35:46.274+0000] {standard_task_runner.py:60} INFO - Started process 1295 to run task
+[2024-06-14T19:35:46.276+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'setup_create_table', 'manual__2024-06-14T19:34:45.176172+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpyixlajiu']
+[2024-06-14T19:35:46.277+0000] {standard_task_runner.py:88} INFO - Job 33: Subtask setup_create_table
+[2024-06-14T19:35:46.296+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:34:45.176172+00:00 [running]> on host 22dc78ccc862
+[2024-06-14T19:35:46.324+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='setup_create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-14T19:34:45.176172+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-14T19:34:45.176172+00:00'
+[2024-06-14T19:35:46.324+0000] {redshift_data.py:122} INFO - Executing statement: 
+DROP TABLE IF EXISTS public.yellow2_201601
+CREATE TABLE public.yellow2_2016013(
+vendorid bigint, 
+tpep_pickup_datetime timestamp,
+tpep_dropoff_datetime timestamp, 
+passenger_count double precision, 
+trip_distance double precision, 
+ratecodeid double precision, 
+store_and_fwd_flag varchar(12), 
+Pulocationid bigint, 
+dolocationid bigint, 
+payment_type bigint, 
+fare_amount double precision, 
+extra double precision, 
+mta_tax double precision, 
+tip_amount double precision, 
+tolls_amount double precision, 
+improvement_surcharge double precision, 
+total_amount double precision, 
+congestion_surcharge double precision, 
+airport_fee double precision);
+    
+[2024-06-14T19:35:46.327+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14T19:35:46.328+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-14T19:35:47.390+0000] {redshift_data.py:113} INFO - Polling statement 4a8269a3-a848-4425-8000-e8d9e2f5b8db
+[2024-06-14T19:35:47.484+0000] {redshift_data.py:129} INFO - Query STARTED
+[2024-06-14T19:35:57.499+0000] {redshift_data.py:113} INFO - Polling statement 4a8269a3-a848-4425-8000-e8d9e2f5b8db
+[2024-06-14T19:35:57.811+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/operators/redshift_data.py", line 124, in execute
+    self.statement_id = self.hook.execute_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_data.py", line 107, in execute_query
+    self.wait_for_results(statement_id, poll_interval=poll_interval)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_data.py", line 124, in wait_for_results
+    raise ValueError(
+ValueError: Statement '4a8269a3-a848-4425-8000-e8d9e2f5b8db' terminated with status FAILED. Response details: {'CreatedAt': datetime.datetime(2024, 6, 14, 19, 35, 46, 977000, tzinfo=tzlocal()),
+ 'Database': 'dev',
+ 'DbUser': 'IAM:velib_project',
+ 'Duration': -1,
+ 'Error': 'ERROR: syntax error at or near "CREATE"\n  Position: 45',
+ 'HasResultSet': False,
+ 'Id': '4a8269a3-a848-4425-8000-e8d9e2f5b8db',
+ 'QueryString': '\n'
+                'DROP TABLE IF EXISTS public.yellow2_201601\n'
+                'CREATE TABLE public.yellow2_2016013(\n'
+                'vendorid bigint, \n'
+                'tpep_pickup_datetime timestamp,\n'
+                'tpep_dropoff_datetime timestamp, \n'
+                'passenger_count double precision, \n'
+                'trip_distance double precision, \n'
+                'ratecodeid double precision, \n'
+                'store_and_fwd_flag varchar(12), \n'
+                'Pulocationid bigint, \n'
+                'dolocationid bigint, \n'
+                'payment_type bigint, \n'
+                'fare_amount double precision, \n'
+                'extra double precision, \n'
+                'mta_tax double precision, \n'
+                'tip_amount double precision, \n'
+                'tolls_amount double precision, \n'
+                'improvement_surcharge double precision, \n'
+                'total_amount double precision, \n'
+                'congestion_surcharge double precision, \n'
+                'airport_fee double precision);\n'
+                '    ',
+ 'RedshiftPid': 1073988056,
+ 'RedshiftQueryId': 0,
+ 'ResponseMetadata': {'HTTPHeaders': {'content-length': '1074',
+                                      'content-type': 'application/x-amz-json-1.1',
+                                      'date': 'Fri, 14 Jun 2024 19:35:56 GMT',
+                                      'x-amzn-requestid': '8ea0c755-88fc-4520-8335-5a672df632c9'},
+                      'HTTPStatusCode': 200,
+                      'RequestId': '8ea0c755-88fc-4520-8335-5a672df632c9',
+                      'RetryAttempts': 0},
+ 'ResultRows': -1,
+ 'ResultSize': -1,
+ 'Status': 'FAILED',
+ 'UpdatedAt': datetime.datetime(2024, 6, 14, 19, 35, 47, 591000, tzinfo=tzlocal()),
+ 'WorkgroupName': 'redshift-velib'}
+[2024-06-14T19:35:57.828+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=setup_create_table, execution_date=20240614T193445, start_date=20240614T193546, end_date=20240614T193557
+[2024-06-14T19:35:57.844+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 33 for task setup_create_table (Statement '4a8269a3-a848-4425-8000-e8d9e2f5b8db' terminated with status FAILED. Response details: {'CreatedAt': datetime.datetime(2024, 6, 14, 19, 35, 46, 977000, tzinfo=tzlocal()),
+ 'Database': 'dev',
+ 'DbUser': 'IAM:velib_project',
+ 'Duration': -1,
+ 'Error': 'ERROR: syntax error at or near "CREATE"\n  Position: 45',
+ 'HasResultSet': False,
+ 'Id': '4a8269a3-a848-4425-8000-e8d9e2f5b8db',
+ 'QueryString': '\n'
+                'DROP TABLE IF EXISTS public.yellow2_201601\n'
+                'CREATE TABLE public.yellow2_2016013(\n'
+                'vendorid bigint, \n'
+                'tpep_pickup_datetime timestamp,\n'
+                'tpep_dropoff_datetime timestamp, \n'
+                'passenger_count double precision, \n'
+                'trip_distance double precision, \n'
+                'ratecodeid double precision, \n'
+                'store_and_fwd_flag varchar(12), \n'
+                'Pulocationid bigint, \n'
+                'dolocationid bigint, \n'
+                'payment_type bigint, \n'
+                'fare_amount double precision, \n'
+                'extra double precision, \n'
+                'mta_tax double precision, \n'
+                'tip_amount double precision, \n'
+                'tolls_amount double precision, \n'
+                'improvement_surcharge double precision, \n'
+                'total_amount double precision, \n'
+                'congestion_surcharge double precision, \n'
+                'airport_fee double precision);\n'
+                '    ',
+ 'RedshiftPid': 1073988056,
+ 'RedshiftQueryId': 0,
+ 'ResponseMetadata': {'HTTPHeaders': {'content-length': '1074',
+                                      'content-type': 'application/x-amz-json-1.1',
+                                      'date': 'Fri, 14 Jun 2024 19:35:56 GMT',
+                                      'x-amzn-requestid': '8ea0c755-88fc-4520-8335-5a672df632c9'},
+                      'HTTPStatusCode': 200,
+                      'RequestId': '8ea0c755-88fc-4520-8335-5a672df632c9',
+                      'RetryAttempts': 0},
+ 'ResultRows': -1,
+ 'ResultSize': -1,
+ 'Status': 'FAILED',
+ 'UpdatedAt': datetime.datetime(2024, 6, 14, 19, 35, 47, 591000, tzinfo=tzlocal()),
+ 'WorkgroupName': 'redshift-velib'}; 1295)
+[2024-06-14T19:35:57.872+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-14T19:35:57.886+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

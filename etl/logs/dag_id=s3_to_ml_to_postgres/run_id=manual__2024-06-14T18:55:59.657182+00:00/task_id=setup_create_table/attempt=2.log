@@ -1,0 +1,58 @@
+[2024-06-14 19:01:33,259] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T18:55:59.657182+00:00 [queued]>
+[2024-06-14 19:01:33,263] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T18:55:59.657182+00:00 [queued]>
+[2024-06-14 19:01:33,263] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 19:01:33,263] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2024-06-14 19:01:33,263] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 19:01:33,268] {taskinstance.py:1377} INFO - Executing <Task(RedshiftDataOperator): setup_create_table> on 2024-06-14 18:55:59.657182+00:00
+[2024-06-14 19:01:33,271] {standard_task_runner.py:52} INFO - Started process 28667 to run task
+[2024-06-14 19:01:33,272] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'setup_create_table', 'manual__2024-06-14T18:55:59.657182+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpae2_9jk3', '--error-file', '/tmp/tmpigw8i_uu']
+[2024-06-14 19:01:33,273] {standard_task_runner.py:80} INFO - Job 34: Subtask setup_create_table
+[2024-06-14 19:01:33,293] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T18:55:59.657182+00:00 [running]> on host 92769061d4a4
+[2024-06-14 19:01:33,318] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=setup_create_table
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-14T18:55:59.657182+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-14T18:55:59.657182+00:00
+[2024-06-14 19:01:33,319] {redshift_data.py:144} INFO - Executing statement: 
+CREATE TABLE public.yellow2_201601(
+vendorid bigint, 
+tpep_pickup_datetime timestamp,
+tpep_dropoff_datetime timestamp, 
+passenger_count double precision, 
+trip_distance double precision, 
+ratecodeid double precision, 
+store_and_fwd_flag varchar(12), 
+Pulocationid bigint, 
+dolocationid bigint, 
+payment_type bigint, 
+fare_amount double precision, 
+extra double precision, 
+mta_tax double precision, 
+tip_amount double precision, 
+tolls_amount double precision, 
+improvement_surcharge double precision, 
+total_amount double precision, 
+congestion_surcharge double precision, 
+airport_fee double precision);
+    
+[2024-06-14 19:01:33,323] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:01:33,323] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:01:33,868] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/operators/redshift_data.py", line 146, in execute
+    self.statement_id = self.execute_query()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/operators/redshift_data.py", line 124, in execute_query
+    resp = self.hook.conn.execute_statement(**filter_values)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 508, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 911, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ValidationException: An error occurred (ValidationException) when calling the ExecuteStatement operation: Redshift endpoint doesn't exist in this region.
+[2024-06-14 19:01:33,884] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=setup_create_table, execution_date=20240614T185559, start_date=20240614T190133, end_date=20240614T190133
+[2024-06-14 19:01:33,894] {standard_task_runner.py:97} ERROR - Failed to execute job 34 for task setup_create_table (An error occurred (ValidationException) when calling the ExecuteStatement operation: Redshift endpoint doesn't exist in this region.; 28667)
+[2024-06-14 19:01:33,914] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-06-14 19:01:33,933] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

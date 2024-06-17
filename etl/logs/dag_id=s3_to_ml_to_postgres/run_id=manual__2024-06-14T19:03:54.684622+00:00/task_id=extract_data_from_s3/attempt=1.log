@@ -1,0 +1,486 @@
+[2024-06-14 19:03:55,649] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-14T19:03:54.684622+00:00 [queued]>
+[2024-06-14 19:03:55,652] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-14T19:03:54.684622+00:00 [queued]>
+[2024-06-14 19:03:55,652] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 19:03:55,653] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-06-14 19:03:55,653] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 19:03:55,658] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extract_data_from_s3> on 2024-06-14 19:03:54.684622+00:00
+[2024-06-14 19:03:55,660] {standard_task_runner.py:52} INFO - Started process 28787 to run task
+[2024-06-14 19:03:55,662] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'extract_data_from_s3', 'manual__2024-06-14T19:03:54.684622+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpjcr1ri2c', '--error-file', '/tmp/tmpra5i1n72']
+[2024-06-14 19:03:55,662] {standard_task_runner.py:80} INFO - Job 35: Subtask extract_data_from_s3
+[2024-06-14 19:03:55,681] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-14T19:03:54.684622+00:00 [running]> on host 92769061d4a4
+[2024-06-14 19:03:55,706] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=extract_data_from_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-14T19:03:54.684622+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-14T19:03:54.684622+00:00
+[2024-06-14 19:03:55,710] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:55,711] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:55,711] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:56,123] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:56,123] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:56,124] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:56,322] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:56,322] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:56,323] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:56,485] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:56,485] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:56,486] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:56,658] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:56,659] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:56,659] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:56,859] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:56,860] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:56,860] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:57,111] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:57,112] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:57,112] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:57,270] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:57,270] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:57,270] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:57,441] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:57,442] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:57,442] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:57,618] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:57,618] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:57,618] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:57,815] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:57,816] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:57,816] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:58,080] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:58,080] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:58,081] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:58,227] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:58,228] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:58,228] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:58,419] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:58,420] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:58,420] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:58,610] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:58,611] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:58,611] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:58,762] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:58,762] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:58,762] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,020] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,020] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,021] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,175] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,175] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,176] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,325] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,326] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,326] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,471] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,471] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,471] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,615] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,616] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,616] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:03:59,880] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:03:59,881] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:03:59,881] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:00,070] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:00,071] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:00,071] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:00,231] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:00,231] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:00,231] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:00,444] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:00,446] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:00,446] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:00,649] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:00,650] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:00,651] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:00,941] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:00,942] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:00,942] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:01,139] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:01,140] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:01,140] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:01,312] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:01,313] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:01,313] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:01,464] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:01,464] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:01,465] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:01,627] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:01,628] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:01,628] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:01,884] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:01,885] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:01,885] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:02,051] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:02,051] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:02,051] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:02,217] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:02,217] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:02,217] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:02,384] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:02,384] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:02,385] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:02,571] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:02,572] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:02,572] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:02,815] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:02,815] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:02,815] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:03,014] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:03,015] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:03,015] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:03,200] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:03,201] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:03,201] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:03,430] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:03,432] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:03,435] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:03,593] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:03,594] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:03,594] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:03,940] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:03,942] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:03,942] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:04,100] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:04,101] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:04,101] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:04,249] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:04,249] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:04,249] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:04,404] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:04,404] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:04,404] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:04,570] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:04,571] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:04,571] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:04,902] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:04,902] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:04,903] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,097] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,097] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,097] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,252] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,253] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,253] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,436] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,437] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,438] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,591] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,591] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,592] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,825] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,826] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,826] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:05,971] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:05,972] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:05,972] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:06,146] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:06,147] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:06,147] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:06,312] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:06,313] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:06,313] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:06,472] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:06,472] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:06,473] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:06,793] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:06,794] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:06,795] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:06,980] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:06,981] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:06,982] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:07,156] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:07,157] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:07,158] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:07,349] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:07,350] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:07,350] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:07,567] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:07,568] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:07,568] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:07,820] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:07,820] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:07,821] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:07,993] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:07,993] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:07,993] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:08,124] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:08,124] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:08,124] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:08,262] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:08,263] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:08,263] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:08,407] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:08,407] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:08,407] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:08,579] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:08,579] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:08,579] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:08,887] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:08,888] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:08,888] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:09,062] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:09,063] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:09,063] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:09,223] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:09,223] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:09,224] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:09,408] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:09,409] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:09,409] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:09,574] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:09,574] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:09,575] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:09,845] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:09,846] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:09,846] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,016] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,016] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,016] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,169] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,169] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,169] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,317] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,317] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,317] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,471] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,471] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,471] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,752] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,752] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,753] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:10,923] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:10,924] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:10,924] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:11,094] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:11,094] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:11,094] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:11,288] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:11,289] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:11,290] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:11,482] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:11,482] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:11,483] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:11,746] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:11,746] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:11,747] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:11,913] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:11,914] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:11,914] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:12,098] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:12,099] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:12,099] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:12,279] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:12,280] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:12,280] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:12,468] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:12,469] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:12,469] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:12,766] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:12,767] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:12,767] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:12,938] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:12,938] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:12,939] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:13,106] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:13,106] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:13,107] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:13,261] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:13,261] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:13,262] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:13,448] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:13,449] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:13,449] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:13,702] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:13,702] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:13,702] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:13,858] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:13,858] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:13,858] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:14,086] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:14,087] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:14,087] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:14,297] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:14,298] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:14,298] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:14,487] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:14,488] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:14,488] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:14,739] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:14,739] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:14,739] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:14,891] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:14,891] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:14,891] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,048] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,049] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,049] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,227] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,227] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,227] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,370] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,370] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,370] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,601] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,602] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,602] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,753] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,753] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,753] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:15,921] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:15,921] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:15,921] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,095] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,096] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,096] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,259] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,260] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,260] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,415] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,415] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,416] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,647] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,647] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,647] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,794] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,794] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,794] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:16,928] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:16,928] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:16,928] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:17,102] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:17,102] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:17,102] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:17,266] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:17,267] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:17,267] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:17,535] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:17,535] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:17,535] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:17,777] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:17,778] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:17,778] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:17,965] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:17,965] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:17,966] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:18,128] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:18,128] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:18,128] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:18,320] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:18,321] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:18,322] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:18,581] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:18,582] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:18,582] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:18,724] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:18,724] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:18,724] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:18,862] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:18,862] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:18,863] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:19,017] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:19,017] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:19,017] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:19,229] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:19,229] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:19,229] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:19,478] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:19,478] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:19,478] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:19,622] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:19,623] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:19,623] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:19,827] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:19,828] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:19,828] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:20,087] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:20,088] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:20,089] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:20,265] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:20,266] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:20,267] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:20,554] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:20,555] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:20,555] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:20,725] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:20,725] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:20,725] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:20,879] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:20,880] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:20,880] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,034] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,034] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,035] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,196] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,196] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,196] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,442] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,442] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,442] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,614] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,615] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,615] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,784] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,784] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,785] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:21,936] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:21,937] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:21,937] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:22,138] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:22,139] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:22,139] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:22,401] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:22,402] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:22,402] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:22,606] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:22,606] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:22,607] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:22,784] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:22,785] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:22,785] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:22,942] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:22,943] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:22,943] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:23,119] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:23,120] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:23,120] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:23,360] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:23,361] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:23,361] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:23,518] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:23,519] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:23,519] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:23,726] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:23,727] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:23,727] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:23,896] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:23,897] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:23,897] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:24,146] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:24,147] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:24,148] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:24,351] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:24,352] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:24,352] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:24,614] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:24,614] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:24,614] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:24,787] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:24,788] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:24,788] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:24,928] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:24,928] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:24,928] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:25,326] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:25,328] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:25,328] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:25,561] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14 19:04:25,562] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-14 19:04:25,562] {base_aws.py:100} INFO - Retrieving region_name from Connection.extra_config['region_name']
+[2024-06-14 19:04:25,844] {logging_mixin.py:115} INFO - Downloaded 153 file(s) from S3 to /opt/***/data/extracted_s3_data
+[2024-06-14 19:04:25,845] {python.py:173} INFO - Done. Returned value was: None
+[2024-06-14 19:04:25,855] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=s3_to_ml_to_postgres, task_id=extract_data_from_s3, execution_date=20240614T190354, start_date=20240614T190355, end_date=20240614T190425
+[2024-06-14 19:04:25,875] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-06-14 19:04:25,888] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

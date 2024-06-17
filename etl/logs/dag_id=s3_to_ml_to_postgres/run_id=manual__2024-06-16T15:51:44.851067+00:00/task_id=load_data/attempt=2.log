@@ -1,0 +1,35 @@
+[2024-06-16T15:59:38.327+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.load_data manual__2024-06-16T15:51:44.851067+00:00 [queued]>
+[2024-06-16T15:59:38.330+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.load_data manual__2024-06-16T15:51:44.851067+00:00 [queued]>
+[2024-06-16T15:59:38.331+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2024-06-16T15:59:38.335+0000] {taskinstance.py:2191} INFO - Executing <Task(RedshiftDataOperator): load_data> on 2024-06-16 15:51:44.851067+00:00
+[2024-06-16T15:59:38.338+0000] {standard_task_runner.py:60} INFO - Started process 24554 to run task
+[2024-06-16T15:59:38.339+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'load_data', 'manual__2024-06-16T15:51:44.851067+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmp088atqo4']
+[2024-06-16T15:59:38.341+0000] {standard_task_runner.py:88} INFO - Job 69: Subtask load_data
+[2024-06-16T15:59:38.357+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.load_data manual__2024-06-16T15:51:44.851067+00:00 [running]> on host 22dc78ccc862
+[2024-06-16T15:59:38.384+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T15:51:44.851067+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T15:51:44.851067+00:00'
+[2024-06-16T15:59:38.385+0000] {redshift_data.py:122} INFO - Executing statement: 
+    COPY transformed_data
+    FROM 's3://velib-project/transformed_data.csv'
+    IAM_ROLE 'arn:aws:iam::891377001948:role/RedshiftCopyRole'
+    FORMAT AS CSV
+    IGNOREHEADER 1;
+    
+[2024-06-16T15:59:38.388+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T15:59:38.388+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-16T15:59:39.012+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/operators/redshift_data.py", line 124, in execute
+    self.statement_id = self.hook.execute_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_data.py", line 99, in execute_query
+    resp = self.conn.execute_statement(**trim_none_values(kwargs))
+  File "/home/airflow/.local/lib/python3.8/site-packages/botocore/client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/botocore/client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ValidationException: An error occurred (ValidationException) when calling the ExecuteStatement operation: Redshift endpoint doesn't exist in this region.
+[2024-06-16T15:59:39.031+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=load_data, execution_date=20240616T155144, start_date=20240616T155938, end_date=20240616T155939
+[2024-06-16T15:59:39.043+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 69 for task load_data (An error occurred (ValidationException) when calling the ExecuteStatement operation: Redshift endpoint doesn't exist in this region.; 24554)
+[2024-06-16T15:59:39.086+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-16T15:59:39.096+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

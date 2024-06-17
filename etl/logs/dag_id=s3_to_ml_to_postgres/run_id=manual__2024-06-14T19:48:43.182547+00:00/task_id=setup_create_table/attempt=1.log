@@ -1,0 +1,138 @@
+[2024-06-14T19:49:35.942+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:48:43.182547+00:00 [queued]>
+[2024-06-14T19:49:35.945+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:48:43.182547+00:00 [queued]>
+[2024-06-14T19:49:35.946+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-06-14T19:49:35.950+0000] {taskinstance.py:2191} INFO - Executing <Task(RedshiftDataOperator): setup_create_table> on 2024-06-14 19:48:43.182547+00:00
+[2024-06-14T19:49:35.952+0000] {standard_task_runner.py:60} INFO - Started process 1929 to run task
+[2024-06-14T19:49:35.954+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'setup_create_table', 'manual__2024-06-14T19:48:43.182547+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpuko0qub0']
+[2024-06-14T19:49:35.955+0000] {standard_task_runner.py:88} INFO - Job 45: Subtask setup_create_table
+[2024-06-14T19:49:35.973+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.setup_create_table manual__2024-06-14T19:48:43.182547+00:00 [running]> on host 22dc78ccc862
+[2024-06-14T19:49:36.002+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='setup_create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-14T19:48:43.182547+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-14T19:48:43.182547+00:00'
+[2024-06-14T19:49:36.002+0000] {redshift_data.py:122} INFO - Executing statement: 
+DROP TABLE IF EXISTS transformed_data;
+CREATE TABLE transformed_data(
+stationcode,
+name,
+is_installed,
+capacity,
+numdocksavailable,
+numbikesavailable,
+mechanical,
+ebike,
+is_renting,
+is_returning,
+nom_arrondissement_communes,
+code_insee_commune,
+longitude, 
+latitude, 
+date, 
+year, 
+month, 
+day, 
+time);
+    
+[2024-06-14T19:49:36.005+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-14T19:49:36.006+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-14T19:49:36.836+0000] {redshift_data.py:113} INFO - Polling statement 3761ce01-c3f8-490e-8fe0-4426b85b3efb
+[2024-06-14T19:49:36.941+0000] {redshift_data.py:129} INFO - Query PICKED
+[2024-06-14T19:49:46.953+0000] {redshift_data.py:113} INFO - Polling statement 3761ce01-c3f8-490e-8fe0-4426b85b3efb
+[2024-06-14T19:49:47.099+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/operators/redshift_data.py", line 124, in execute
+    self.statement_id = self.hook.execute_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_data.py", line 107, in execute_query
+    self.wait_for_results(statement_id, poll_interval=poll_interval)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_data.py", line 124, in wait_for_results
+    raise ValueError(
+ValueError: Statement '3761ce01-c3f8-490e-8fe0-4426b85b3efb' terminated with status FAILED. Response details: {'CreatedAt': datetime.datetime(2024, 6, 14, 19, 49, 36, 537000, tzinfo=tzlocal()),
+ 'Database': 'dev',
+ 'DbUser': 'IAM:velib_project',
+ 'Duration': -1,
+ 'Error': 'ERROR: syntax error at or near ";"\n  Position: 264',
+ 'HasResultSet': False,
+ 'Id': '3761ce01-c3f8-490e-8fe0-4426b85b3efb',
+ 'QueryString': '\n'
+                'DROP TABLE IF EXISTS transformed_data;\n'
+                'CREATE TABLE transformed_data(\n'
+                'stationcode,\n'
+                'name,\n'
+                'is_installed,\n'
+                'capacity,\n'
+                'numdocksavailable,\n'
+                'numbikesavailable,\n'
+                'mechanical,\n'
+                'ebike,\n'
+                'is_renting,\n'
+                'is_returning,\n'
+                'nom_arrondissement_communes,\n'
+                'code_insee_commune,\n'
+                'longitude, \n'
+                'latitude, \n'
+                'date, \n'
+                'year, \n'
+                'month, \n'
+                'day, \n'
+                'time);\n'
+                '    ',
+ 'RedshiftPid': 1073799373,
+ 'RedshiftQueryId': 0,
+ 'ResponseMetadata': {'HTTPHeaders': {'content-length': '723',
+                                      'content-type': 'application/x-amz-json-1.1',
+                                      'date': 'Fri, 14 Jun 2024 19:49:46 GMT',
+                                      'x-amzn-requestid': '6e68e2ec-7341-48a3-b57e-6a2c2faa26bd'},
+                      'HTTPStatusCode': 200,
+                      'RequestId': '6e68e2ec-7341-48a3-b57e-6a2c2faa26bd',
+                      'RetryAttempts': 0},
+ 'ResultRows': -1,
+ 'ResultSize': -1,
+ 'Status': 'FAILED',
+ 'UpdatedAt': datetime.datetime(2024, 6, 14, 19, 49, 37, 183000, tzinfo=tzlocal()),
+ 'WorkgroupName': 'redshift-velib'}
+[2024-06-14T19:49:47.103+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=setup_create_table, execution_date=20240614T194843, start_date=20240614T194935, end_date=20240614T194947
+[2024-06-14T19:49:47.109+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 45 for task setup_create_table (Statement '3761ce01-c3f8-490e-8fe0-4426b85b3efb' terminated with status FAILED. Response details: {'CreatedAt': datetime.datetime(2024, 6, 14, 19, 49, 36, 537000, tzinfo=tzlocal()),
+ 'Database': 'dev',
+ 'DbUser': 'IAM:velib_project',
+ 'Duration': -1,
+ 'Error': 'ERROR: syntax error at or near ";"\n  Position: 264',
+ 'HasResultSet': False,
+ 'Id': '3761ce01-c3f8-490e-8fe0-4426b85b3efb',
+ 'QueryString': '\n'
+                'DROP TABLE IF EXISTS transformed_data;\n'
+                'CREATE TABLE transformed_data(\n'
+                'stationcode,\n'
+                'name,\n'
+                'is_installed,\n'
+                'capacity,\n'
+                'numdocksavailable,\n'
+                'numbikesavailable,\n'
+                'mechanical,\n'
+                'ebike,\n'
+                'is_renting,\n'
+                'is_returning,\n'
+                'nom_arrondissement_communes,\n'
+                'code_insee_commune,\n'
+                'longitude, \n'
+                'latitude, \n'
+                'date, \n'
+                'year, \n'
+                'month, \n'
+                'day, \n'
+                'time);\n'
+                '    ',
+ 'RedshiftPid': 1073799373,
+ 'RedshiftQueryId': 0,
+ 'ResponseMetadata': {'HTTPHeaders': {'content-length': '723',
+                                      'content-type': 'application/x-amz-json-1.1',
+                                      'date': 'Fri, 14 Jun 2024 19:49:46 GMT',
+                                      'x-amzn-requestid': '6e68e2ec-7341-48a3-b57e-6a2c2faa26bd'},
+                      'HTTPStatusCode': 200,
+                      'RequestId': '6e68e2ec-7341-48a3-b57e-6a2c2faa26bd',
+                      'RetryAttempts': 0},
+ 'ResultRows': -1,
+ 'ResultSize': -1,
+ 'Status': 'FAILED',
+ 'UpdatedAt': datetime.datetime(2024, 6, 14, 19, 49, 37, 183000, tzinfo=tzlocal()),
+ 'WorkgroupName': 'redshift-velib'}; 1929)
+[2024-06-14T19:49:47.146+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-14T19:49:47.153+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

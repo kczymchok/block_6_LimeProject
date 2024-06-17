@@ -1,0 +1,41 @@
+[2024-06-14 14:47:19,333] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T14:46:56.443996+00:00 [queued]>
+[2024-06-14 14:47:19,337] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T14:46:56.443996+00:00 [queued]>
+[2024-06-14 14:47:19,337] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 14:47:19,337] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-06-14 14:47:19,337] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-14 14:47:19,342] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): transform_data> on 2024-06-14 14:46:56.443996+00:00
+[2024-06-14 14:47:19,344] {standard_task_runner.py:52} INFO - Started process 17268 to run task
+[2024-06-14 14:47:19,346] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'transform_data', 'manual__2024-06-14T14:46:56.443996+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpzp_t6eis', '--error-file', '/tmp/tmps9zmieeo']
+[2024-06-14 14:47:19,346] {standard_task_runner.py:80} INFO - Job 17: Subtask transform_data
+[2024-06-14 14:47:19,366] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.transform_data manual__2024-06-14T14:46:56.443996+00:00 [running]> on host 92769061d4a4
+[2024-06-14 14:47:19,391] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=transform_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-14T14:46:56.443996+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-14T14:46:56.443996+00:00
+[2024-06-14 14:47:19,517] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ml_dataset_preparation.py", line 81, in transform_data
+    df['longitude'], df['latitude'] = zip(*df['coordonnees_geo'].apply(strip_and_extract))
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/series.py", line 4357, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/apply.py", line 1043, in apply
+    return self.apply_standard()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/apply.py", line 1101, in apply_standard
+    convert=self.convert_dtype,
+  File "pandas/_libs/lib.pyx", line 2859, in pandas._libs.lib.map_infer
+  File "/opt/airflow/dags/ml_dataset_preparation.py", line 72, in strip_and_extract
+    s = s.strip("{}")
+AttributeError: 'dict' object has no attribute 'strip'
+[2024-06-14 14:47:19,522] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=s3_to_ml_to_postgres, task_id=transform_data, execution_date=20240614T144656, start_date=20240614T144719, end_date=20240614T144719
+[2024-06-14 14:47:19,526] {standard_task_runner.py:97} ERROR - Failed to execute job 17 for task transform_data ('dict' object has no attribute 'strip'; 17268)
+[2024-06-14 14:47:19,538] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-06-14 14:47:19,550] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

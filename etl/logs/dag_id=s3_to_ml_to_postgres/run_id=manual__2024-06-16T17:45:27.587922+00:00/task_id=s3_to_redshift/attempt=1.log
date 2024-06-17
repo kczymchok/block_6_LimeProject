@@ -1,0 +1,40 @@
+[2024-06-16T17:48:05.746+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T17:45:27.587922+00:00 [queued]>
+[2024-06-16T17:48:05.749+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T17:45:27.587922+00:00 [queued]>
+[2024-06-16T17:48:05.750+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-06-16T17:48:05.755+0000] {taskinstance.py:2191} INFO - Executing <Task(S3ToRedshiftOperator): s3_to_redshift> on 2024-06-16 17:45:27.587922+00:00
+[2024-06-16T17:48:05.758+0000] {standard_task_runner.py:60} INFO - Started process 29328 to run task
+[2024-06-16T17:48:05.759+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 's3_to_redshift', 'manual__2024-06-16T17:45:27.587922+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpxffjomif']
+[2024-06-16T17:48:05.761+0000] {standard_task_runner.py:88} INFO - Job 124: Subtask s3_to_redshift
+[2024-06-16T17:48:05.780+0000] {task_command.py:423} INFO - Running <TaskInstance: s3_to_ml_to_postgres.s3_to_redshift manual__2024-06-16T17:45:27.587922+00:00 [running]> on host 22dc78ccc862
+[2024-06-16T17:48:05.808+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_ml_to_postgres' AIRFLOW_CTX_TASK_ID='s3_to_redshift' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T17:45:27.587922+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T17:45:27.587922+00:00'
+[2024-06-16T17:48:05.811+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T17:48:05.813+0000] {base.py:83} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-16T17:48:05.813+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-06-16T17:48:05.818+0000] {s3_to_redshift.py:192} INFO - Executing COPY command...
+[2024-06-16T17:48:05.820+0000] {base.py:83} INFO - Using connection ID 'redshift_conn_id' for task execution.
+[2024-06-16T17:49:20.999+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 626, in __init__
+    self._usock.connect(hostport)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/transfers/s3_to_redshift.py", line 196, in execute
+    redshift_hook.run(sql, autocommit=self.autocommit)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_sql.py", line 200, in get_conn
+    return redshift_connector.connect(**conn_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/__init__.py", line 376, in connect
+    return Connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 689, in __init__
+    raise InterfaceError("communication error", e)
+redshift_connector.error.InterfaceError: ('communication error', ConnectionRefusedError(111, 'Connection refused'))
+[2024-06-16T17:49:21.018+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=s3_to_ml_to_postgres, task_id=s3_to_redshift, execution_date=20240616T174527, start_date=20240616T174805, end_date=20240616T174921
+[2024-06-16T17:49:21.032+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 124 for task s3_to_redshift (('communication error', ConnectionRefusedError(111, 'Connection refused')); 29328)
+[2024-06-16T17:49:21.064+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-16T17:49:21.076+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

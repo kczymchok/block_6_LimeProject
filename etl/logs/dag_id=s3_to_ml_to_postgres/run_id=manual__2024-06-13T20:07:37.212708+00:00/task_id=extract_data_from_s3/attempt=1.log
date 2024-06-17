@@ -1,0 +1,106 @@
+[2024-06-13 20:07:37,568] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-13T20:07:37.212708+00:00 [queued]>
+[2024-06-13 20:07:37,573] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-13T20:07:37.212708+00:00 [queued]>
+[2024-06-13 20:07:37,573] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-13 20:07:37,573] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-06-13 20:07:37,573] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-13 20:07:37,579] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extract_data_from_s3> on 2024-06-13 20:07:37.212708+00:00
+[2024-06-13 20:07:37,581] {standard_task_runner.py:52} INFO - Started process 3944 to run task
+[2024-06-13 20:07:37,583] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 's3_to_ml_to_postgres', 'extract_data_from_s3', 'manual__2024-06-13T20:07:37.212708+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/ml_dataset_preparation.py', '--cfg-path', '/tmp/tmpxdh1i79v', '--error-file', '/tmp/tmpwpow4e0y']
+[2024-06-13 20:07:37,583] {standard_task_runner.py:80} INFO - Job 7: Subtask extract_data_from_s3
+[2024-06-13 20:07:37,609] {task_command.py:370} INFO - Running <TaskInstance: s3_to_ml_to_postgres.extract_data_from_s3 manual__2024-06-13T20:07:37.212708+00:00 [running]> on host 92769061d4a4
+[2024-06-13 20:07:37,642] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_ml_to_postgres
+AIRFLOW_CTX_TASK_ID=extract_data_from_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-13T20:07:37.212708+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-13T20:07:37.212708+00:00
+[2024-06-13 20:07:37,647] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:37,648] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:37,942] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:37,943] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:38,117] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:38,117] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:38,363] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:38,363] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:38,541] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:38,542] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:38,731] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:38,731] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:38,922] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:38,923] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:39,080] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:39,081] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:39,321] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:39,321] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:39,511] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:39,511] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:39,679] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:39,679] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:39,880] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:39,881] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:40,076] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:40,077] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:40,349] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:40,349] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:40,536] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:40,537] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:40,732] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:40,733] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:40,899] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:40,900] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:41,146] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:41,147] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:41,430] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:41,431] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:41,579] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:41,580] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:41,757] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:41,757] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:41,928] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:41,928] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:42,104] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:42,105] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:42,367] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:42,368] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:42,533] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:42,533] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:42,719] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:42,719] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:42,886] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:42,886] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:43,063] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:43,063] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:43,363] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:43,364] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:43,544] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:43,544] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:43,737] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:43,738] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:43,909] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:43,909] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,074] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,075] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,290] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,291] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,550] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,551] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,717] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,717] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,850] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,850] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:44,989] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:44,989] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:45,139] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:45,140] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:45,374] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:45,374] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:45,529] {base.py:68} INFO - Using connection ID 'aws_default' for task execution.
+[2024-06-13 20:07:45,529] {base_aws.py:206} INFO - Credentials retrieved from login
+[2024-06-13 20:07:45,684] {logging_mixin.py:115} INFO - Downloaded 40 file(s) from S3 to /opt/***/data
+[2024-06-13 20:07:45,685] {python.py:173} INFO - Done. Returned value was: None
+[2024-06-13 20:07:45,697] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=s3_to_ml_to_postgres, task_id=extract_data_from_s3, execution_date=20240613T200737, start_date=20240613T200737, end_date=20240613T200745
+[2024-06-13 20:07:45,743] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-06-13 20:07:45,760] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
