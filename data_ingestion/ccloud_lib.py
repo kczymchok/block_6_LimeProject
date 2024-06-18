@@ -87,13 +87,11 @@ class Count(object):
         Count stores the deserialized Avro record for the Kafka value.
     """
 
-    # Use __slots__ to explicitly declare all data members.
     __slots__ = ["count", "id"]
 
     def __init__(self, count=None):
         self.count = count
-        # Unique id used to track produce request success/failures.
-        # Do *not* include in the serialized object.
+
         self.id = uuid4()
 
     @staticmethod
@@ -144,7 +142,6 @@ def read_ccloud_config(config_file):
                 parameter, value = line.strip().split('=', 1)
                 conf[parameter] = value.strip()
 
-    #conf['ssl.ca.location'] = certifi.where()
 
     return conf
 
@@ -176,11 +173,10 @@ def create_topic(conf, topic):
     )])
     for topic, f in fs.items():
         try:
-            f.result()  # The result itself is None
+            f.result() 
             print("Topic {} created".format(topic))
         except Exception as e:
-            # Continue if error code TOPIC_ALREADY_EXISTS, which may be true
-            # Otherwise fail fast
+
             if e.args[0].code() != KafkaError.TOPIC_ALREADY_EXISTS:
                 print("Failed to create topic {}: {}".format(topic, e))
                 sys.exit(1)

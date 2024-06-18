@@ -13,7 +13,7 @@ from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOp
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2024, 3, 14),  # Adjust start date
+    'start_date': datetime(2024, 3, 14), 
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
@@ -22,15 +22,14 @@ dag = DAG(
     's3_to_ml_to_AmazoneRedshiftServerless',
     default_args=default_args,
     description='Extract, transform, and load data from S3 to PostgreSQL',
-    schedule_interval='@daily',  # Adjust as needed
-    catchup=False,  # Set to False if you don't want historical backfill
+    schedule_interval='@daily', 
+    catchup=False,  
 )
 
 def extract_data_from_s3():
     # Define your S3 bucket and key
     s3_bucket = 'velib-project'
-    s3_prefix = 'realtime_data_velib/'  # Adjust as needed to match your file structure
-
+    s3_prefix = 'realtime_data_velib/' 
     # Define local directory where files will be downloaded
     local_dir = '/opt/airflow/data/extracted_s3_data'
     os.makedirs(local_dir, exist_ok=True)
@@ -75,10 +74,9 @@ def transform_data():
         lat = coord_dict.get('lat')
         return lon, lat
 
-    # Apply the function to extract longitude and latitude
+
     df['longitude'], df['latitude'] = zip(*df['coordonnees_geo'].apply(extract_coordinates))
 
-# Convert numeric columns to numeric types, handle non-numeric values like '.'
     numeric_columns = ['capacity', 'numdocksavailable', 'numbikesavailable', 'mechanical', 'ebike']
     for col in numeric_columns:
         df[col] = pd.to_numeric(df[col], errors='coerce').astype('Int64')
@@ -95,7 +93,7 @@ def transform_data():
     }
     df = df.astype(column_types)
 
-    #arrange the duedate columns for better analysis and data manipulation
+
     df['duedate']=pd.to_datetime(df['duedate'])
 
     df['date']=df["duedate"].dt.date
@@ -104,11 +102,6 @@ def transform_data():
     df['day']=df['duedate'].dt.day
     df['time']=df['duedate'].dt.time
 
-    # df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
-    # df['date']=pd.to_datetime(df['date'])
-
-
-    # Drop the original 'coordonnees_geo' and duedate
     df = df.drop(columns=['coordonnees_geo', 'duedate'])
 
     transformed_file_path = os.path.join(transformed_data_dir, 'transformed_data.csv')
@@ -161,58 +154,13 @@ setup__task_create_table2 = RedshiftDataOperator(
     """
 )
 
-# transfer_s3_to_redshift = RedshiftDataOperator(
-#     task_id='load_data',
-#     region='us-east-1', 
-#     cluster_identifier='redshift-velib',
-#     database='dev',
-#     aws_conn_id='aws_default',
-#     sql="""
-#     COPY transformed_data
-#     FROM 's3://velib-project/transformed_data.csv'
-#     IAM_ROLE 'arn:aws:iam::891377001948:role/RedshiftCopyRoles'
-#     FORMAT AS CSV
-#     IGNOREHEADER 1;
-#     """,
-#     dag=dag,
-# )
-
-# transfer_s3_to_redshift = S3ToRedshiftOperator(
-#     task_id="transfer_s3_to_redshift",
-#     redshift_conn_id="redshift_conn_id",
-#     s3_bucket="velib-project",
-#     s3_key="transformed_data.csv",  # Replace with your actual S3 key
-#     schema="public",
-#     table="transformed_data",
-#     copy_options=["csv"],
-#     dag=dag,
-# )
-
-# transfer_s3_to_redshift = S3ToRedshiftOperator(
-#     task_id="s3_to_redshift",
-#     schema="PUBLIC",
-#     table="transformed_data",
-#     s3_bucket="velib-project",
-#     s3_key="transformed_data.csv",
-#     redshift_conn_id="redshift_conn_id",
-#     aws_conn_id="aws_default",
-#     sql="""
-#     COPY transformed_data
-#     FROM 's3://velib-project/transformed_data.csv'
-#     IAM_ROLE 'arn:aws:iam::891377001948:role/RedshiftCopyRoles'
-#     FORMAT AS CSV
-#     IGNOREHEADER 1;
-#     """,
-#     dag=dag,  
-# )
-
 transfer_s3_to_redshift = S3ToRedshiftOperator(
     task_id="s3_to_redshift",
     schema="PUBLIC",
     table="transformed_data",
     s3_bucket="velib-project",
     s3_key="transformed_data.csv",
-    copy_options=["csv", "IGNOREHEADER 1", "MAXERROR 1000","DELIMITER ','", "FILLRECORD"],  # Specify COPY options here
+    copy_options=["csv", "IGNOREHEADER 1", "MAXERROR 1000","DELIMITER ','", "FILLRECORD"], 
     aws_conn_id="aws_default",
     redshift_conn_id="redshift_conn_id",
     dag=dag,
