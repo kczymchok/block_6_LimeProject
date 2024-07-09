@@ -1,0 +1,12 @@
+uvicorn
+gunicorn
+boto3
+numpy
+pandas
+pydantic
+fastapi
+
+mlflow
+cloudpickle
+scikit-learn>=1.5.1
+joblib
