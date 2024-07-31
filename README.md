@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project leverages Paris' Open Data by retrieving real-time data from Velib stations to optimize Lime's bike and scooter placement. We have created an infrastructure that ingests and visualizes this data in real-time, helping Lime to meet urban transport demands efficiently. The project encompasses data ingestion, ETL processes, predictive modeling, and user interface development.
+This project leverages Paris' Open Data by retrieving real-time data from Velib stations to optimize Lime's bike and scooter deployment. We have created an infrastructure that ingests and visualizes this data in real-time, helping Lime to meet urban transport demands efficiently. The project encompasses data ingestion, ETL processes, predictive modeling, and user interface development.
 
 ## Problem Statements
 
