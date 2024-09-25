@@ -54,8 +54,35 @@ Model Evaluation: Evaluating model performance using appropriate metrics.
 <img width="714" alt="Screenshot 2024-07-21 at 5 42 57 PM" src="https://github.com/user-attachments/assets/153bb70a-01c8-4a0c-afbd-913f8e4d163e">
 <img width="720" alt="Screenshot 2024-07-21 at 5 43 10 PM" src="https://github.com/user-attachments/assets/386430f5-e0d0-407c-ab21-e2b3919403a8">
 
-## Containerization
-The project uses Docker and Docker Compose to ensure smooth deployment and communication between different components:
-Docker: Creating images for each component (e.g., FastAPI, Streamlit).
-Docker Compose: Managing multiple containers and enabling communication between them.
+
+## How to Run the Project
+
+1. **Download the repository:**
+   
+   Clone or download the repository to your local machine.
+
+2. **Open Docker:**
+
+   Make sure Docker is running on your machine.
+
+5. **Navigate to the directory:**
+ 
+   From your terminal, navigate to the directory where `docker-compose.yaml` is located:
+   ```bash
+   cd path/to/docker-compose.yaml
+6. **Launch the services**
+```bash
+docker-compose up
+
+```
+
+7. **Access the applications**
+
+   Streamlit: You can access the Streamlit application locally at: http://0.0.0.0:8501/
+
+   FastAPI documentation: You can access the FastAPI documentation at: http://0.0.0.0:8000/docs
+
+8. **Usage**
+   
+   The project focuses on Velib stations in Paris. If you'd like to try making predictions, use addresses in Paris for accurate results.
 
